@@ -36,9 +36,18 @@ namespace api.Services
                     User_Id = order.User_Id,
                     Strung_Id = order.Strung_Id,
                 };
-                _context.Orders.Add(newOrder);
-                _context.SaveChanges();
-                return newOrder;
+                Strung strungSelected = _context.Strungs.Find(order.Strung_Id)!;
+                if (strungSelected.Stock > 0)
+                {
+                    strungSelected.Stock -= 1;
+                    _context.Orders.Add(newOrder);
+                    _context.SaveChanges();
+                    return newOrder;
+                }
+                else
+                {
+                    throw new Exception("No stock found for this product");
+                }
             }
             else
             {

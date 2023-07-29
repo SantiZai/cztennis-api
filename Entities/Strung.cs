@@ -11,5 +11,6 @@ namespace api.Entities
         public string? Image { get; set; }
         public float? Size { get; set; }
         public float? Price { get; set; }
+        public int? Stock { get; set; } = 1;
     }
 }

@@ -59,6 +59,7 @@ namespace api.Controllers
                     existingStrung.Image = strung.Image ?? existingStrung.Image;
                     existingStrung.Price = strung.Price ?? existingStrung.Price;
                     existingStrung.Size = strung.Size ?? existingStrung.Size;
+                    existingStrung.Stock = strung.Stock ?? existingStrung.Stock;
                     _services.Update(id, existingStrung);
                     return Ok(existingStrung);
                 }

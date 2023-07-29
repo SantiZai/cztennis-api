@@ -34,6 +34,7 @@ namespace api.Services
                 Image = strung.Image,
                 Price = strung.Price,
                 Size = strung.Size,
+                Stock = strung.Stock,
             };
             _context.Strungs.Add(newStrung);
             _context.SaveChanges();
@@ -48,6 +49,7 @@ namespace api.Services
             existingStrung.Image = strung.Image;
             existingStrung.Price = strung.Price;
             existingStrung.Size = strung.Size;
+            existingStrung.Stock = strung.Stock;
             _context.Strungs.Update(existingStrung);
             _context.SaveChanges();
         }
