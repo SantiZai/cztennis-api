@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace api.Services
 {
-    public class StrungServices
+    public class StrungsServices
     {
         private readonly CZContext _context;
 
-        public StrungServices(CZContext context)
+        public StrungsServices(CZContext context)
         {
             _context = context;
         }
@@ -31,6 +31,7 @@ namespace api.Services
             {
                 Name = strung.Name,
                 Brand = strung.Brand,
+                Image = strung.Image,
                 Price = strung.Price,
                 Size = strung.Size,
             };
@@ -44,6 +45,7 @@ namespace api.Services
             Strung existingStrung = _context.Strungs.SingleOrDefault(s => s.Id == id) ?? throw new KeyNotFoundException("Strung not found");
             existingStrung.Name = strung.Name;
             existingStrung.Brand = strung.Brand;
+            existingStrung.Image = strung.Image;
             existingStrung.Price = strung.Price;
             existingStrung.Size = strung.Size;
             _context.Strungs.Update(existingStrung);

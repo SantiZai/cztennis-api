@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace api.Services
 {
-    public class OrderServices
+    public class OrdersServices
     {
         private readonly CZContext _context;
 
-        public OrderServices(CZContext context)
+        public OrdersServices(CZContext context)
         {
             _context = context;
         }

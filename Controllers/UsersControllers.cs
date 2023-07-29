@@ -5,12 +5,12 @@ using Microsoft.AspNetCore.Mvc;
 namespace api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
-    public class UserControllers : ControllerBase
+    [Route("users")]
+    public class UsersControllers : ControllerBase
     {
-        readonly UserServices _services;
+        readonly UsersServices _services;
 
-        public UserControllers(UserServices services)
+        public UsersControllers(UsersServices services)
         {
             _services = services;
         }
@@ -39,6 +39,20 @@ namespace api.Controllers
             {
                 _services.Create(user);
                 return Ok("User created");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPost("login")]
+        public IActionResult Login(User user)
+        {
+            try
+            {
+                _services.Login(user);
+                return Ok("Login successful");
             }
             catch (Exception ex)
             {

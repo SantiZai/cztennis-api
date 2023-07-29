@@ -1,14 +1,15 @@
 ﻿using api.Context;
 using api.Entities;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 
 namespace api.Services
 {
-    public class UserServices
+    public class UsersServices
     {
         private readonly CZContext _context;
 
-        public UserServices(CZContext context)
+        public UsersServices(CZContext context)
         {
             _context = context;
         }
@@ -39,9 +40,15 @@ namespace api.Services
             return newUser;
         }
 
+        public User Login(User user)
+        {
+            return _context.Users
+                .SingleOrDefault(u => u.FullName == user.FullName && u.Password == user.Password) ?? throw new KeyNotFoundException("User not found");
+        }
+
         public void Update(int id, User user)
         {
-            User existingUser = _context.Users.SingleOrDefault(u => u.Id == id) ?? throw new KeyNotFoundException("Order not found");
+            User existingUser = _context.Users.SingleOrDefault(u => u.Id == id) ?? throw new KeyNotFoundException("User not found");
             existingUser.FullName = user.FullName;
             existingUser.Password = user.Password;
             existingUser.IsAdmin = user.IsAdmin;

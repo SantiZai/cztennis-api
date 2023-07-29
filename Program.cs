@@ -7,9 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<CZContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddControllers().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
-builder.Services.AddScoped<UserServices>();
-builder.Services.AddScoped<StrungServices>();
-builder.Services.AddScoped<OrderServices>();
+builder.Services.AddScoped<UsersServices>();
+builder.Services.AddScoped<StrungsServices>();
+builder.Services.AddScoped<OrdersServices>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

@@ -5,26 +5,26 @@ using Microsoft.AspNetCore.Mvc;
 namespace api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
-    public class StrungControllers : ControllerBase
+    [Route("orders")]
+    public class OrdersControllers : ControllerBase
     {
-        readonly StrungServices _services;
+        readonly OrdersServices _services;
 
-        public StrungControllers(StrungServices services)
+        public OrdersControllers(OrdersServices services)
         {
             _services = services;
         }
 
         [HttpGet]
-        public IEnumerable<Strung> GetAll() => _services.GetAll();
+        public IEnumerable<Order> GetAll() => _services.GetAll();
 
         [HttpGet("{id}")]
-        public ActionResult<Strung> GetById(int id)
+        public ActionResult<Order> GetById(int id)
         {
             try
             {
-                Strung strung = _services.GetById(id)!;
-                return strung is not null ? strung : NotFound();
+                Order order = _services.GetById(id)!;
+                return order is not null ? order : NotFound();
             }
             catch (Exception ex)
             {
@@ -33,12 +33,12 @@ namespace api.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Strung strung)
+        public IActionResult Create(Order order)
         {
             try
             {
-                _services.Create(strung);
-                return Ok("Strung created");
+                _services.Create(order);
+                return Ok("Order created");
             }
             catch (Exception ex)
             {
@@ -47,19 +47,17 @@ namespace api.Controllers
         }
 
         [HttpPatch("{id}")]
-        public IActionResult Update(int id, Strung strung)
+        public IActionResult Update(int id,  Order order)
         {
             try
             {
-                var existingStrung = _services.GetById(id);
-                if (existingStrung is not null)
+                var existingOrder = _services.GetById(id);
+                if (existingOrder is not null)
                 {
-                    existingStrung.Name = strung.Name ?? existingStrung.Name;
-                    existingStrung.Brand = strung.Brand ?? existingStrung.Brand;
-                    existingStrung.Price = strung.Price ?? existingStrung.Price;
-                    existingStrung.Size = strung.Size ?? existingStrung.Size;
-                    _services.Update(id, existingStrung);
-                    return Ok(existingStrung);
+                    existingOrder.User_Id = order.User_Id ?? existingOrder.User_Id;
+                    existingOrder.Strung_Id = order.Strung_Id ?? existingOrder.Strung_Id;
+                    _services.Update(id, existingOrder);
+                    return Ok(existingOrder);
                 }
                 else
                 {
@@ -80,7 +78,7 @@ namespace api.Controllers
                 if(_services.GetById(id) is not null)
                 {
                     _services.Delete(id);
-                    return Ok("User deleted");
+                    return Ok("Order deleted");
                 }
                 else
                 {
