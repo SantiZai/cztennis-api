@@ -12,7 +12,8 @@
           "Microsoft.AspNetCore.OpenApi": "7.0.4",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.9",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.9",
-          "Swashbuckle.AspNetCore": "6.4.0"
+          "Swashbuckle.AspNetCore": "6.4.0",
+          "mercadopago-sdk": "2.3.2"
         },
         "runtime": {
           "api.dll": {}
@@ -57,6 +58,18 @@
           "lib/net6.0/Humanizer.dll": {
             "assemblyVersion": "2.14.0.0",
             "fileVersion": "2.14.1.48190"
+          }
+        }
+      },
+      "mercadopago-sdk/2.3.2": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1",
+          "System.Configuration.ConfigurationManager": "5.0.0"
+        },
+        "runtime": {
+          "lib/net5.0/MercadoPago.dll": {
+            "assemblyVersion": "2.3.2.0",
+            "fileVersion": "2.3.2.0"
           }
         }
       },
@@ -745,6 +758,13 @@
       "sha512": "sha512-lQKvtaTDOXnoVJ20ibTuSIOf2i0uO0MPbDhd1jm238I+U/2ZnRENj0cktKZhtchBMtCUSRQ5v4xBCUbKNmyVMw==",
       "path": "humanizer.core/2.14.1",
       "hashPath": "humanizer.core.2.14.1.nupkg.sha512"
+    },
+    "mercadopago-sdk/2.3.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KLQp6kNVJ3TqG6ZLfDOh/20FoQsOO12ZjerhQTjqiyUZ9AiyfSkW/8v6rhcHlzbARF3bjAGsssyatQMtcdYN3A==",
+      "path": "mercadopago-sdk/2.3.2",
+      "hashPath": "mercadopago-sdk.2.3.2.nupkg.sha512"
     },
     "Microsoft.AspNetCore.JsonPatch/7.0.9": {
       "type": "package",

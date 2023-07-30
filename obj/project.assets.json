@@ -59,6 +59,23 @@
           }
         }
       },
+      "mercadopago-sdk/2.3.2": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1",
+          "System.Configuration.ConfigurationManager": "5.0.0"
+        },
+        "compile": {
+          "lib/net5.0/MercadoPago.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/MercadoPago.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
       "Microsoft.AspNetCore.JsonPatch/7.0.9": {
         "type": "package",
         "dependencies": {
@@ -863,7 +880,7 @@
           "System.Security.Permissions": "5.0.0"
         },
         "compile": {
-          "ref/netstandard2.0/_._": {
+          "ref/netstandard2.0/System.Configuration.ConfigurationManager.dll": {
             "related": ".xml"
           }
         },
@@ -892,7 +909,7 @@
           "Microsoft.Win32.SystemEvents": "5.0.0"
         },
         "compile": {
-          "ref/netcoreapp3.0/_._": {
+          "ref/netcoreapp3.0/System.Drawing.Common.dll": {
             "related": ".xml"
           }
         },
@@ -1089,7 +1106,7 @@
           "System.Security.Principal.Windows": "5.0.0"
         },
         "compile": {
-          "ref/netstandard2.0/_._": {
+          "ref/netstandard2.0/System.Security.AccessControl.dll": {
             "related": ".xml"
           }
         },
@@ -1153,7 +1170,7 @@
           "System.Windows.Extensions": "5.0.0"
         },
         "compile": {
-          "ref/net5.0/_._": {
+          "ref/net5.0/System.Security.Permissions.dll": {
             "related": ".xml"
           }
         },
@@ -1166,7 +1183,7 @@
       "System.Security.Principal.Windows/5.0.0": {
         "type": "package",
         "compile": {
-          "ref/netcoreapp3.0/_._": {
+          "ref/netcoreapp3.0/System.Security.Principal.Windows.dll": {
             "related": ".xml"
           }
         },
@@ -1290,7 +1307,7 @@
           "System.Drawing.Common": "5.0.0"
         },
         "compile": {
-          "ref/netcoreapp3.0/_._": {
+          "ref/netcoreapp3.0/System.Windows.Extensions.dll": {
             "related": ".xml"
           }
         },
@@ -1363,6 +1380,26 @@
         "lib/netstandard2.0/Humanizer.dll",
         "lib/netstandard2.0/Humanizer.xml",
         "logo.png"
+      ]
+    },
+    "mercadopago-sdk/2.3.2": {
+      "sha512": "KLQp6kNVJ3TqG6ZLfDOh/20FoQsOO12ZjerhQTjqiyUZ9AiyfSkW/8v6rhcHlzbARF3bjAGsssyatQMtcdYN3A==",
+      "type": "package",
+      "path": "mercadopago-sdk/2.3.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net461/MercadoPago.dll",
+        "lib/net461/MercadoPago.pdb",
+        "lib/net461/MercadoPago.xml",
+        "lib/net5.0/MercadoPago.dll",
+        "lib/net5.0/MercadoPago.pdb",
+        "lib/net5.0/MercadoPago.xml",
+        "lib/netstandard2.0/MercadoPago.dll",
+        "lib/netstandard2.0/MercadoPago.pdb",
+        "lib/netstandard2.0/MercadoPago.xml",
+        "mercadopago-sdk.2.3.2.nupkg.sha512",
+        "mercadopago-sdk.nuspec"
       ]
     },
     "Microsoft.AspNetCore.JsonPatch/7.0.9": {
@@ -4057,7 +4094,8 @@
       "Microsoft.AspNetCore.OpenApi >= 7.0.4",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.9",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.9",
-      "Swashbuckle.AspNetCore >= 6.4.0"
+      "Swashbuckle.AspNetCore >= 6.4.0",
+      "mercadopago-sdk >= 2.3.2"
     ]
   },
   "packageFolders": {
@@ -4126,6 +4164,10 @@
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[6.4.0, )"
+          },
+          "mercadopago-sdk": {
+            "target": "Package",
+            "version": "[2.3.2, )"
           }
         },
         "imports": [
