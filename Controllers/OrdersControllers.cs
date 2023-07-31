@@ -56,6 +56,7 @@ namespace api.Controllers
                 {
                     existingOrder.User_Id = order.User_Id ?? existingOrder.User_Id;
                     existingOrder.Strung_Id = order.Strung_Id ?? existingOrder.Strung_Id;
+                    existingOrder.Status = order.Status ?? existingOrder.Status;
                     _services.Update(id, existingOrder);
                     return Ok(existingOrder);
                 }

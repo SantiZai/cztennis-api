@@ -7,8 +7,8 @@ namespace api.Entities
     {
         public enum STATUS
         {
-            Pagado,
             Pendiente,
+            Pagado,
             Cancelado,
         }
 
@@ -19,6 +19,6 @@ namespace api.Entities
         public int? User_Id { get; set; }
         [ForeignKey("Strung")]
         public int? Strung_Id { get; set; }
-        public STATUS? Status { get; set; }
+        public STATUS? Status { get; set; } = STATUS.Pendiente;
     }
 }

@@ -35,6 +35,7 @@ namespace api.Services
                     Id = order.Id,
                     User_Id = order.User_Id,
                     Strung_Id = order.Strung_Id,
+                    Status = order.Status,
                 };
                 Strung strungSelected = _context.Strungs.Find(order.Strung_Id)!;
                 if (strungSelected.Stock > 0)
@@ -62,6 +63,7 @@ namespace api.Services
                 Order existingOrder = _context.Orders.SingleOrDefault(o => o.Id == id) ?? throw new KeyNotFoundException("Order not found");
                 existingOrder.User_Id = order.User_Id;
                 existingOrder.Strung_Id = order.Strung_Id;
+                existingOrder.Status = order.Status;
                 _context.Orders.Update(existingOrder);
                 _context.SaveChanges();
             }
