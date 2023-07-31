@@ -5,6 +5,13 @@ namespace api.Entities
 {
     public class Order
     {
+        public enum STATUS
+        {
+            Pagado,
+            Pendiente,
+            Cancelado,
+        }
+
         [Key]
         [Required]
         public int Id { get; set; }
@@ -12,5 +19,6 @@ namespace api.Entities
         public int? User_Id { get; set; }
         [ForeignKey("Strung")]
         public int? Strung_Id { get; set; }
+        public STATUS? Status { get; set; }
     }
 }
