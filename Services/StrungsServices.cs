@@ -18,6 +18,12 @@ namespace api.Services
             return _context.Strungs.ToList();
         }
 
+        public IEnumerable<Strung> GetAllByIds(List<Order> orders)
+        {
+            List<int?> ids = orders.Select(order => order.Strung_Id).ToList();
+            return ids.Select(id => _context.Strungs.Find(id))!;
+        }
+
         public Strung? GetById(int id)
         {
             return _context.Strungs
