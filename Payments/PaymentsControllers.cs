@@ -26,7 +26,8 @@ namespace api.Payments
             MercadoPagoConfig.AccessToken = "TEST-7204989668375833-073020-a25f6ee3cea08b9574c770da92ad2b95-1436768984";
             var request = new PreferenceRequest
             {
-                Items = new List<PreferenceItemRequest>()
+                Items = new List<PreferenceItemRequest>(),
+                Purpose = "wallet_purchase",
             };
             foreach (Strung str in strs)
             {

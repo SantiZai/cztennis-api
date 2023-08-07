@@ -33,17 +33,17 @@ namespace api.Services
                 FullName = user.FullName,
                 Password = user.Password,
                 IsAdmin = user.IsAdmin,
-                Orders = user.Orders
+                Orders = user.Orders,
+                Cart = user.Cart,
             };
             _context.Users.Add(newUser);
             _context.SaveChanges();
             return newUser;
         }
 
-        public User Login(User user)
+        public User Login(LoginPetition petition)
         {
-            return _context.Users
-                .SingleOrDefault(u => u.FullName == user.FullName && u.Password == user.Password) ?? throw new KeyNotFoundException("User not found");
+            return _context.Users.SingleOrDefault(u => u.FullName == petition.Fullname && u.Password == petition.Password)! ?? throw new KeyNotFoundException("User not found");
         }
 
         public void Update(int id, User user)
@@ -53,6 +53,7 @@ namespace api.Services
             existingUser.Password = user.Password;
             existingUser.IsAdmin = user.IsAdmin;
             existingUser.Orders = user.Orders;
+            existingUser.Cart = user.Cart;
             _context.Users.Update(existingUser);
             _context.SaveChanges();
         }

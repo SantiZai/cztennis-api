@@ -11,5 +11,12 @@ namespace api.Entities
         public string? Password { get; set; }
         public bool? IsAdmin { get; set; } = false;
         public List<Order>? Orders { get; set; } = new List<Order>();
+        public string? Cart { get; set; } = "";
+    }
+
+    public class LoginPetition
+    {
+        public string? Fullname;
+        public string? Password;
     }
 }

@@ -46,13 +46,14 @@ namespace api.Controllers
             }
         }
 
+
         [HttpPost("login")]
-        public IActionResult Login(User user)
+        public ActionResult<User> Login(LoginPetition petition)
         {
             try
             {
-                _services.Login(user);
-                return Ok("Login successful");
+                User user = _services.Login(petition);
+                return Ok(user);
             }
             catch (Exception ex)
             {
@@ -72,6 +73,7 @@ namespace api.Controllers
                     existingUser.Password = user.Password ?? existingUser.Password;
                     existingUser.IsAdmin = user.IsAdmin | existingUser.IsAdmin;
                     existingUser.Orders = user.Orders ?? existingUser.Orders;
+                    existingUser.Cart = user.Cart ?? existingUser.Cart;
                     _services.Update(id, existingUser);
                     return Ok(existingUser);
                 }
